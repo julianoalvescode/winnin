@@ -1,12 +1,13 @@
 import React from 'react';
 
+import Post from '../Post/index';
+
 import { Container } from './styles';
 
 const ListPosts = () => (
     <>
         <Container>
-            <h1>Item 2</h1>
-            <h1>Item 2</h1>
+            <Post />
         </Container>
     </>
 );

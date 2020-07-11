@@ -10,7 +10,7 @@ export const ContainerHeader = styled.header`
 
     .header-title {
         color: #fff;
-        span {
+        .header-orange {
             color: #ff5500;
         }
     }
