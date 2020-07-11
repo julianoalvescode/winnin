@@ -10,9 +10,8 @@ export const ContainerHeader = styled.header`
 
     .header-title {
         color: #fff;
-
-        .header-span {
-            color: '#ff5500';
+        span {
+            color: #ff5500;
         }
     }
 `;

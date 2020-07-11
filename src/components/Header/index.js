@@ -6,7 +6,7 @@ const Header = () => (
     <>
         <ContainerHeader>
             <h1 className="header-title">
-                React<span className="header-span">JS</span>
+                React<span>JS</span>
             </h1>
         </ContainerHeader>
     </>
