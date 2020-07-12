@@ -1,6 +1,8 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects';
-
 import { toast } from 'react-toastify';
+
+import { store } from '../../index';
+
 import api from '../../../services/api';
 
 import { searchSuccess, searchFailure } from './actions';
@@ -8,10 +10,14 @@ import { searchSuccess, searchFailure } from './actions';
 export function* searchPosts({ payload }) {
     const { category } = payload;
 
+    const limitNumber = store.getState().posts.limit;
+    console.log(limitNumber);
+
     try {
         const response = yield call(api.get, `${category}.json`, {
             params: {
                 sort: 'new',
+                limit: limitNumber,
             },
         });
 
