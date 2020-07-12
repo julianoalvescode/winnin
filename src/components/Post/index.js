@@ -33,7 +33,7 @@ const Post = (data) => {
                         className="post-link"
                         href={domain}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                     >
                         {domain}
                     </a>

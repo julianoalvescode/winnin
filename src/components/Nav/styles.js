@@ -10,8 +10,19 @@ export const Container = styled.nav`
     gap: 10px;
     align-items: center;
 
-    .nav-button {
+    .nav-active {
         background-color: #ff5500;
+        border: none;
+        border-radius: 4px;
+        height: 40px;
+        color: #fff;
+        font-weight: 500;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    .nav-disable {
+        background-color: #666666;
         border: none;
         border-radius: 4px;
         height: 40px;

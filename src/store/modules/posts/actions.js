@@ -5,10 +5,10 @@ export function searchPosts(category) {
     };
 }
 
-export function searchSuccess(items) {
+export function searchSuccess(items, category) {
     return {
         type: '@posts/SEARCH_SUCCESS',
-        payload: { items },
+        payload: { items, category },
     };
 }
 

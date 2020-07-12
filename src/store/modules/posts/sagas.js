@@ -11,7 +11,6 @@ export function* searchPosts({ payload }) {
     const { category } = payload;
 
     const limitNumber = store.getState().posts.limit;
-    console.log(limitNumber);
 
     try {
         const response = yield call(api.get, `${category}.json`, {
@@ -23,7 +22,7 @@ export function* searchPosts({ payload }) {
 
         const { children } = response.data.data;
 
-        yield put(searchSuccess(children));
+        yield put(searchSuccess(children, category));
     } catch (e) {
         toast.error('☹ Não foi possível buscar!', {
             position: 'top-right',
