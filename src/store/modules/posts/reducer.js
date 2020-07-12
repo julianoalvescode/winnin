@@ -3,8 +3,7 @@ import producer from 'immer';
 const INITIAL_STATE = {
     posts: null,
     active: null,
-    loading: false,
-    limit: 6,
+    limit: 4,
 };
 
 export default function Posts(state = INITIAL_STATE, action) {
@@ -13,6 +12,10 @@ export default function Posts(state = INITIAL_STATE, action) {
             return producer(state, (draft) => {
                 draft.posts = action.payload.items;
                 draft.active = action.payload.category;
+            });
+        case '@posts/LOAD_MORE':
+            return producer(state, (draft) => {
+                draft.limit += 2;
             });
         default:
             return state;

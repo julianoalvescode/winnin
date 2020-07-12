@@ -24,6 +24,37 @@ export function* searchPosts({ payload }) {
 
         yield put(searchSuccess(children, category));
     } catch (e) {
+        toast.error('Tente novamente mais tarde 😏', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        console.log('erro');
+        yield put(searchFailure());
+    }
+}
+
+export function* loadMore({ payload }) {
+    const { category } = payload;
+
+    const limitNumber = store.getState().posts.limit;
+
+    try {
+        const response = yield call(api.get, `${category}.json`, {
+            params: {
+                sort: 'new',
+                limit: limitNumber,
+            },
+        });
+
+        const { children } = response.data.data;
+
+        yield put(searchSuccess(children, category));
+    } catch (e) {
         toast.error('☹ Não foi possível buscar!', {
             position: 'top-right',
             autoClose: 5000,
@@ -37,4 +68,7 @@ export function* searchPosts({ payload }) {
     }
 }
 
-export default all([takeLatest('@posts/SEARCH_POSTS', searchPosts)]);
+export default all([
+    takeLatest('@posts/SEARCH_POSTS', searchPosts),
+    takeLatest('@posts/LOAD_MORE', loadMore),
+]);

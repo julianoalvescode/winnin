@@ -5,6 +5,13 @@ export function searchPosts(category) {
     };
 }
 
+export function loadMore(category) {
+    return {
+        type: '@posts/LOAD_MORE',
+        payload: { category },
+    };
+}
+
 export function searchSuccess(items, category) {
     return {
         type: '@posts/SEARCH_SUCCESS',
