@@ -23,7 +23,7 @@ const ListPosts = () => {
 
     return (
         <>
-            <Container>
+            <Container data-cy="container-post">
                 {posts !== null
                     ? posts.map((i) => (
                           <Post key={i.data.created_utc} data={i.data} />
@@ -31,6 +31,7 @@ const ListPosts = () => {
                     : null}
                 {posts !== null ? (
                     <button
+                        data-cy="load-more"
                         onClick={load}
                         className={loading ? 'list-load-active' : 'list-load'}
                         type="button"

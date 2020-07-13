@@ -8,7 +8,7 @@ export const ContainerHeader = styled.header`
     justify-content: center;
     align-items: center;
 
-    .switch-brabo {
+    .switch-style {
         margin-left: 18px;
     }
 

@@ -22,7 +22,8 @@ const Header = () => {
                     React<span className="header-orange">JS</span>
                 </h1>
                 <Switch
-                    className="switch-brabo"
+                    data-cy="theme-switcher"
+                    className="switch-style"
                     onChange={() => {
                         dispatch(
                             changeTheme(theme === 'light' ? 'dark' : 'light')

@@ -18,6 +18,7 @@ const Nav = () => {
         <>
             <Container>
                 <button
+                    data-cy="tab-hot"
                     onClick={() => ResquestPosts('hot')}
                     className={active !== 'hot' ? 'nav-disable' : 'nav-active'}
                     type="button"
@@ -25,6 +26,7 @@ const Nav = () => {
                     Hot
                 </button>
                 <button
+                    data-cy="tab-new"
                     onClick={() => ResquestPosts('new')}
                     className={active !== 'new' ? 'nav-disable' : 'nav-active'}
                     type="button"
@@ -32,6 +34,7 @@ const Nav = () => {
                     News
                 </button>
                 <button
+                    data-cy="tab-rising"
                     onClick={() => ResquestPosts('rising')}
                     className={
                         active !== 'rising' ? 'nav-disable' : 'nav-active'

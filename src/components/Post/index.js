@@ -13,7 +13,7 @@ const Post = (data) => {
 
     return (
         <>
-            <Container>
+            <Container data-cy="post">
                 <img
                     src={
                         thumbnail.includes('http')
