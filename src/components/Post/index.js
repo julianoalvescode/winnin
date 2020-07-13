@@ -18,7 +18,7 @@ const Post = (data) => {
                     src={
                         thumbnail.includes('http')
                             ? thumbnail
-                            : 'http://placehold.it/84x84'
+                            : 'https://placehold.it/84x84'
                     }
                     alt="Thumb"
                     className="post-thumb"
