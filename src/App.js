@@ -1,16 +1,17 @@
-import React from 'react';
-import { PersistGate } from 'redux-persist/integration/react';
+import React, { useState } from 'react';
+
 import { Provider } from 'react-redux';
+
+import { PersistGate } from 'redux-persist/integration/react';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+
 import Routes from './routes';
 
 import './config/Reactotronconfig';
 
 import { store, persistor } from './store';
-
-import GlobalStyle from './styles/global';
 
 function App() {
     return (
@@ -20,7 +21,6 @@ function App() {
                     <ToastContainer />
                     <Router>
                         <Routes />
-                        <GlobalStyle />
                     </Router>
                 </PersistGate>
             </Provider>

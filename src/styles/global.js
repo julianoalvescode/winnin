@@ -12,7 +12,7 @@ export default createGlobalStyle`
     body {
         font-family: 'Roboto', Helvetica, Helvetica, sans-serif;
         -webkit-font-smoothing: antialiased;
-        background-color: #ffff;
+        background-color: ${(props) => props.theme.colors.background}
     }
 
 

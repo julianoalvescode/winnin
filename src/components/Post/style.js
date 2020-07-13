@@ -9,7 +9,7 @@ export const Container = styled.div`
     transition: all 0.2s ease-in-out;
 
     &:hover {
-        background-color: #eeeeee;
+        background-color: ${(props) => props.theme.colors.hover};
         cursor: pointer;
     }
 
@@ -26,7 +26,7 @@ export const Container = styled.div`
     }
 
     .post-title {
-        color: #333333;
+        color: ${(props) => props.theme.colors.title};
         font-size: 23px;
         font-weight: 700;
     }
@@ -41,8 +41,8 @@ export const Container = styled.div`
     }
 
     .post-link {
-        color: #000000;
-        text-decoration-color: #000000;
+        color: ${(props) => props.theme.colors.link};
+        text-decoration-color: ${(props) => props.theme.colors.link};
         margin-top: 6px;
     }
 `;

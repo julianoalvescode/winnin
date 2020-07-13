@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
 export const ContainerHeader = styled.header`
-    background-color: #333333;
+    background-color: ${(props) => props.theme.colors.secondary};
     padding: 1rem 0;
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .switch-brabo {
+        margin-left: 18px;
+    }
 
     .header-title {
         color: #fff;
