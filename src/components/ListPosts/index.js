@@ -14,10 +14,12 @@ const ListPosts = () => {
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts.posts);
     const category = useSelector((state) => state.posts.active);
+    const items = useSelector((state) => state.posts.posts);
+    const after = useSelector((state) => state.posts.after);
 
     async function load() {
         setLoading(true);
-        await dispatch(loadMore(category));
+        await dispatch(loadMore(items, category, after));
         setLoading(false);
     }
 

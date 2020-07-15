@@ -5,22 +5,22 @@ export function searchPosts(category) {
     };
 }
 
-export function loadMore(category) {
+export function loadMore(items, category, after) {
     return {
         type: '@posts/LOAD_MORE',
-        payload: { category },
+        payload: { items, category, after },
     };
 }
 
-export function searchSuccess(items, category) {
+export function searchSuccess(items, category, after) {
     return {
         type: '@posts/SEARCH_SUCCESS',
-        payload: { items, category },
+        payload: { items, category, after },
     };
 }
 
 export function searchFailure() {
     return {
-        type: '@video/SEARCH_FAILURE',
+        type: '@posts/SEARCH_FAILURE',
     };
 }

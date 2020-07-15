@@ -6,7 +6,7 @@ export default (reducers) => {
         {
             key: 'reddit',
             storage,
-            whitelist: ['posts', 'app'],
+            whitelist: ['app'],
         },
         reducers
     );

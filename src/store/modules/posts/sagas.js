@@ -21,8 +21,9 @@ export function* searchPosts({ payload }) {
         });
 
         const { children } = response.data.data;
+        const { after } = response.data.data;
 
-        yield put(searchSuccess(children, category));
+        yield put(searchSuccess(children, category, after));
     } catch (e) {
         toast.error('Tente novamente mais tarde 😏', {
             position: 'top-right',
@@ -33,29 +34,32 @@ export function* searchPosts({ payload }) {
             draggable: true,
             progress: undefined,
         });
-        console.log('erro');
         yield put(searchFailure());
     }
 }
 
-export function* loadMore({ payload }) {
-    const { category } = payload;
+export function* AddItems({ payload }) {
+    const { category, items, after } = payload;
 
-    const limitNumber = store.getState().posts.limit;
+    const limitNumber = store.getState().posts.limitPagination;
 
     try {
         const response = yield call(api.get, `${category}.json`, {
             params: {
                 sort: 'new',
                 limit: limitNumber,
+                after,
             },
         });
 
         const { children } = response.data.data;
+        const afterFinal = response.data.data.after;
 
-        yield put(searchSuccess(children, category));
+        const responseFinal = [...items, ...children];
+
+        yield put(searchSuccess(responseFinal, category, afterFinal));
     } catch (e) {
-        toast.error('☹ Não foi possível buscar!', {
+        toast.error(`${e}`, {
             position: 'top-right',
             autoClose: 5000,
             hideProgressBar: false,
@@ -70,5 +74,5 @@ export function* loadMore({ payload }) {
 
 export default all([
     takeLatest('@posts/SEARCH_POSTS', searchPosts),
-    takeLatest('@posts/LOAD_MORE', loadMore),
+    takeLatest('@posts/LOAD_MORE', AddItems),
 ]);
